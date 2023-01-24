@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create_users_table" author="Dmytro_Komyshnyi">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="users"/></not>
+        </preConditions>
+        <createTable tableName="users">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="status" type="varchar(255)" defaultValue="ACTIVE">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "username" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name = "password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "first_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "last_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "date_of_birth" type="date"/>
+            <column name = "role" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="varchar(255)" defaultValue="ACTIVE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_notes_table" author="Dmytro_Komyshnyi">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="notes"/></not>
+        </preConditions>
+        <createTable tableName="notes">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="varchar(255)" defaultValue="ACTIVE">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "text" type="varchar(5000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="uuid">
+                <constraints nullable="false" foreignKeyName="fk_user_note" references="users(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
