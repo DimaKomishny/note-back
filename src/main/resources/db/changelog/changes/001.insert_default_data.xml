@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="insert_default_data" author="Dmytro_Komyshnyi">
+        <insert tableName="users">
+            <column name="id" value="8302ec9a-4a1f-4077-9fd5-71d7b3276dcf"/>
+            <column name="username" value="admin"/>
+            <column name="password" value="$2a$12$u0ZWQjuyMO3v5nsow2LGseTHsjrDtKb7NsjCAaUMehCHhQ0siM25C"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="first_name" value="Admin"/>
+            <column name="last_name" value="Adminov"/>
+            <column name="gender" value="OTHER"/>
+            <column name="role" value="ADMIN"/>
+            <column name="date_of_birth" value="2000-1-1"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="id" value="c9740d72-edde-43cd-a9b8-dfccd04651aa"/>
+            <column name="username" value="user"/>
+            <column name="password" value="$2a$12$u0ZWQjuyMO3v5nsow2LGseTHsjrDtKb7NsjCAaUMehCHhQ0siM25C"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="first_name" value="User"/>
+            <column name="last_name" value="User"/>
+            <column name="gender" value="FEMALE"/>
+            <column name="role" value="USER"/>
+            <column name="date_of_birth" value="2000-1-1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
