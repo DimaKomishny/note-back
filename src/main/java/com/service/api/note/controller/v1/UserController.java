@@ -3,6 +3,7 @@ package com.service.api.note.controller.v1;
 import com.service.api.note.dto.ResponseMessageDto;
 import com.service.api.note.dto.UserProfileDto;
 import com.service.api.note.dto.UserSaveDto;
+import com.service.api.note.facade.UserFacade;
 import com.service.api.note.facade.impl.UserFacadeImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UserController {
 
-    private final UserFacadeImpl userFacade;
+    private final UserFacade userFacade;
 
     @GetMapping
     @PreAuthorize("hasAnyAuthority('full')")
